@@ -216,5 +216,5 @@ In order to mitigate this situation, one possible strategy is adopting Test driv
 
 The method in `UsersRepository`that hasn't been tested is `getUsersInBirthday`. 
 
-*Adrián Orduna*
+*Adrián Orduna
 
