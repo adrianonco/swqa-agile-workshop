@@ -35,7 +35,7 @@ public final class CampusAppMockedTest {
 
   @Test
   public void testCreateGroup() {
-    // Arrangement is covered by the 'setup' method which initializes the mocks.
+    // Arrange is covered by the 'setup' method
     // Act
     app.createGroup("1", "bigdata");
     // Assert
