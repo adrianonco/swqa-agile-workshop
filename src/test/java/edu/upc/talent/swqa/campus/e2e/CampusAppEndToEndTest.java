@@ -37,7 +37,7 @@ public final class CampusAppEndToEndTest extends DatabaseBackedTest {
 
   @Test
   public void testCreateGroup() {
-    // Arrange is covered by the setUpDatabaseSchema method
+    // Arrange
     final String groupId = "2";
     final String groupName = "bigdata";
 
