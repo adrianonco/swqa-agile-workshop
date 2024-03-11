@@ -26,7 +26,7 @@ public final class CampusAppEndToEndTest extends DatabaseBackedTest {
     // Arrange is covered by the setUpDatabaseSchema method
     // Act
     app.createGroup("2", "bigdata");
-    //  Assert is missing
+    // Assert is missing
   }
 
   @Test
