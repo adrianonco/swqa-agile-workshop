@@ -6,6 +6,10 @@ import edu.upc.talent.swqa.campus.infrastructure.SmtpEmailService;
 import edu.upc.talent.swqa.campus.infrastructure.test.PostgreSqlUsersRepositoryTestHelper;
 import static edu.upc.talent.swqa.campus.infrastructure.test.UsersRepositoryTest.defaultInitialState;
 import static edu.upc.talent.swqa.campus.test.utils.TestFixtures.swqa;
+
+import edu.upc.talent.swqa.campus.test.utils.UsersRepositoryState;
+import org.junit.jupiter.api.Assertions;
+
 import edu.upc.talent.swqa.jdbc.test.utils.DatabaseBackedTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,12 +25,31 @@ public final class CampusAppEndToEndTest extends DatabaseBackedTest {
     this.app = new CampusApp(repo, new SmtpEmailService());
   }
 
+  /*
   @Test
   public void testCreateGroup() {
     // Arrange is covered by the setUpDatabaseSchema method
     // Act
     app.createGroup("2", "bigdata");
     // Assert is missing
+  }
+  */
+
+  @Test
+  public void testCreateGroup() {
+    // Arrange is covered by the setUpDatabaseSchema method
+    final String groupId = "2";
+    final String groupName = "bigdata";
+
+    // Act
+    app.createGroup(groupId, groupName);
+
+    // Assert
+    final UsersRepositoryState finalState = PostgreSqlUsersRepositoryTestHelper.getFinalState(db);
+    boolean groupExists = finalState.groups().stream()
+            .anyMatch(group -> group.id().equals(groupId) && group.name().equals(groupName));
+
+    Assertions.assertTrue(groupExists, "Group was not created as expected");
   }
 
   @Test
