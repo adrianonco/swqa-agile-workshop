@@ -215,4 +215,3 @@ In order to mitigate this situation, one possible strategy is adopting Test driv
 ### Question 11
 
 The method in `UsersRepository`that hasn't been tested is `getUsersInBirthday`. 
-
